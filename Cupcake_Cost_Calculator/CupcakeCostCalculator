@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class CupcakeCostCalculator {
+    public static String keyboardInput() {          //Method to take keyboard input
+        Scanner keyboard = new Scanner(System.in);
+        return (keyboard.nextLine());       //Takes entire input line
+    }
+
+    public static int costCalc(String [] values) {
+        int price;
+        if (Integer.parseInt(values [0]) <= Integer.parseInt(values [1])) {         //Checks to see if cupcakes are less than a certain amount
+            price = Integer.parseInt(values [0]) * Integer.parseInt(values [2]);    //Calculates cost using original price
+        }
+        else {                                                                      //When cupcakes are more than a certain amount
+            price = Integer.parseInt(values [0]) * Integer.parseInt(values [3]);    //Calculates final price using different price value
+        }
+        return (price);    //Returns the price
+    }
+
+    public static void main(String[] args) {
+        String input = keyboardInput();     //takes input using method
+        String[] values = input.split(" ");    //Converts string into an array with values in the following order and index respectively: 0, 1, 2, 3, as t, k, d, D
+        int price = costCalc(values);       //Gives the values to the method to calculate cost
+        System.out.print(price);
+    }
+}
